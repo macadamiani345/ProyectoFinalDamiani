@@ -1,0 +1,26 @@
+.extras{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    margin: 30px 30px 30px 30px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #F9F9F9;
+
+    img{
+        max-width: 40%;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+    
+    .contenedorTexto {
+        padding: 20px;
+
+        h2{
+            font-size: 28px;
+            color: var(--color-texto-general);
+            margin-bottom: 15px;
+        }
+    }  
+}

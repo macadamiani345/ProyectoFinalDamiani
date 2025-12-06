@@ -10,6 +10,14 @@ body {
     font-style: normal;
 }
 
+.tituloPagina{
+    font-size: 30px;
+    padding: 15px;
+    text-align: center;
+    background-color: var(--color-fondo-seccion);
+    margin: 20px;
+}
+
 *{
     margin: 0;
     padding: 0;

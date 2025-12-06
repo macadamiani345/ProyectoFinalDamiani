@@ -1,0 +1,12 @@
+.agregarProductoCarrito{
+    color: var(--color-texto-general);
+    padding: 10px;
+    background-color: var(--color-fondo-seccion);
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    display: block;
+    margin: 10px auto 0 auto; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
