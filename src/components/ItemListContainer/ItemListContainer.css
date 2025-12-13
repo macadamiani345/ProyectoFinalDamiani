@@ -1,0 +1,14 @@
+.alineacionProductos {
+    width: 90%;
+    text-align: left;
+    margin: 20px auto;
+}
+
+.alineacionProductos h2 {
+    font-size: 25px;
+    font-weight: 400;
+    text-align: center;
+    background-color: var(--color-fondo-seccion);
+    padding: 10px;
+    border-radius: 5px;
+}

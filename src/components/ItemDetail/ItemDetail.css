@@ -2,14 +2,13 @@
     padding: 40px;
     max-width: 1000px;
     margin: 0 auto;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
 }
 
 .btn-volver {
     display: inline-block;
     margin-bottom: 30px;
     text-decoration: none;
-    color: #8c7b70; 
+    color: var(--color-texto-negro); 
     font-weight: 500;
     transition: color 0.3s ease;
 }
@@ -30,7 +29,7 @@
 }
 
 .detalle-imagen img {
-    width: 100%;
+    width: 80%;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
@@ -41,38 +40,38 @@
     text-align: left;
 }
 
-.marca {
+.detalle-info span {
     color: #999;
-    font-size: 14px;
+    font-size: 18px;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 10px;
     display: block;
 }
 
-.titulo-producto {
-    font-size: 36px;
+.detalle-info .nombre {
+    font-size: 24px;
     font-weight: 400; 
     margin: 0 0 15px 0;
     color: var(--color-texto-general);
     line-height: 1.2;
 }
 
-.precio-detalle {
-    font-size: 28px;
+.detalle-info .precio {
+    font-size: 20px;
     color: var(--color-texto-precio); 
     font-weight: 600;
     margin-bottom: 25px;
 }
 
-.descripcion {
+.detalle-info .descripcion {
     line-height: 1.8;
     color: var(--color-texto-nombre);
     margin-bottom: 30px;
     font-size: 16px;
 }
 
-.divisor {
+.detalle-info .divisor {
     border: 0;
     border-top: 1px solid #e0e0e0;
     margin: 30px 0;

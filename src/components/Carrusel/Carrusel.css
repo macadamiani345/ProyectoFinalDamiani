@@ -3,25 +3,25 @@
     margin: 0px auto;
     overflow: hidden;
     height: auto;
+}
 
-    ul {
-        display: flex;
-        padding: 0;
-        width: 400%;
-        animation: slide 20s infinite alternate ease-in-out;
-        margin-bottom: 20px;
+.carrusel ul {
+    display: flex;
+    padding: 0;
+    width: 400%;
+    animation: slide 20s infinite alternate ease-in-out;
+    margin-bottom: 20px;
+}
 
-        li {
-            width: 100%;
-            list-style: none;
+.carrusel ul li {
+    width: 100%;
+    list-style: none;
+}
 
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
-    }
+.carrusel ul li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 @keyframes slide {

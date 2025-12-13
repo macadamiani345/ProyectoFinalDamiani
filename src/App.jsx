@@ -4,11 +4,9 @@ import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
 import Carrusel from "./components/Carrusel/Carrusel"
 import Extras from "./components/Extras/Extras"
-import ProductBox from "./components/ProductBox/ProductBox"
-import ProductBox2 from "./components/ProductBox2/ProductBox2"
-import Categoria from './components/Categoria/Categoria'
-import Details from './components/Details/Details.jsx'
-import Conoce from './components/Conoce/Conoce.jsx'
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
+import Conoce from "./components/Conoce/Conoce"
 
 function App() {
   return (
@@ -21,16 +19,19 @@ function App() {
         
           <Route path="/" element={
             <>
-              <Carrusel />
-              <ProductBox />
-              <ProductBox2 />
+              <Carrusel />  
+              <ItemListContainer greeting="Productos Nuevos" categoryProp="nuevos" />
+              <ItemListContainer greeting="Los Más Vendidos" categoryProp="mas-vendidos" />
               <Extras />
             </>
           }/>
 
-          <Route path="/categoria" element={ <Categoria /> }/>
-          <Route path="/detalle" element={ <Details /> }/>
+          <Route path="/productos" element={ <ItemListContainer greeting="Nuestros Productos" /> }/>
+
+          <Route path="/categoria/:categoryId" element={ <ItemListContainer /> }/>
+          <Route path="/detalle/:itemId" element={ <ItemDetailContainer /> }/>
           <Route path="/conoce" element={ <Conoce /> }/>
+          <Route path="*" element={ <p style={{ textAlign: 'center', margin: '80px 0' }}>404 - Página no encontrada</p> }/>
 
         </Routes>
 
