@@ -25,9 +25,9 @@ function Header(){
                         </div>
                     </div>
                     <div>
-                        <a href="/carrito.html">
+                        <Link to="/carrito">
                             <img src={carrito} alt="Ícono de carrito de compras" width="25" height="25" />
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </section>

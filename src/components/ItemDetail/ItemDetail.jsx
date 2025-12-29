@@ -2,8 +2,13 @@ import { Link } from 'react-router-dom';
 import Button from "../Button/Button"; 
 import "./ItemDetail.css"; 
 
-const ItemDetail = ({ name, brand, price, img, description, category}) => {
+const ItemDetail = ({ id, name, brand, price, img, description, category, agregarAlCarrito}) => {
     const mainCategory = category.split(',')[0].trim();
+    
+    const handleClick = () => {
+        const producto = { id, name, brand, price, img };
+        agregarAlCarrito(producto, 1);
+    };
     
     return (
         <div className="container-detalle">
@@ -30,7 +35,7 @@ const ItemDetail = ({ name, brand, price, img, description, category}) => {
 
                     <hr className="divisor" />
 
-                    <div className="contenedor-boton">
+                    <div className="contenedor-boton" onClick={handleClick}>
                         <Button>Agregar al Carrito</Button>
                     </div>
             

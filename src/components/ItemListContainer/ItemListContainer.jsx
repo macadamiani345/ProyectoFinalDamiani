@@ -4,7 +4,7 @@ import ItemList from '../ItemList/ItemList';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import "./ItemListContainer.css";
 
-const ItemListContainer = ({ greeting, categoryProp, showCategoryFilter = false }) => { 
+const ItemListContainer = ({ greeting, categoryProp, showCategoryFilter = false, agregarAlCarrito }) => { 
     const [products, setProducts] = useState([]);
     const { categoryId } = useParams();
     const navigate = useNavigate();
@@ -68,7 +68,7 @@ const ItemListContainer = ({ greeting, categoryProp, showCategoryFilter = false 
                     </select>
                 </div>
             )}
-            <ItemList products={products} />
+            <ItemList products={products} agregarAlCarrito={agregarAlCarrito} />
         </section>
     );
 };
