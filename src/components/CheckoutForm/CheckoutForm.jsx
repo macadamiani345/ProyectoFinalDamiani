@@ -3,10 +3,11 @@ import { useCart } from '../../context/CartContext.jsx';
 import './CheckoutForm.css';
 
 const CheckoutForm = () => {
-    const { carrito, totalPrecio, limpiarCarrito } = useCart();
+    const { carrito, totalPrecio, vaciarCarrito } = useCart();
     const [buyer, setBuyer] = useState({ nombre: '', email: '', telefono: '' });
     const [error, setError] = useState('');
     const [orderId, setOrderId] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -15,16 +16,16 @@ const CheckoutForm = () => {
 
     const validate = () => {
         if (!buyer.nombre || !buyer.email || !buyer.telefono) {
-        setError('Completa todos los campos.');
-        return false;
+            setError('Completa todos los campos.');
+            return false;
         }
         if (!/.+@.+\..+/.test(buyer.email)) {
-        setError('Email inválido.');
-        return false;
+            setError('Email inválido.');
+            return false;
         }
         if (carrito.length === 0) {
-        setError('El carrito está vacío.');
-        return false;
+            setError('El carrito está vacío.');
+            return false;
         }
         setError('');
         return true;
@@ -33,10 +34,16 @@ const CheckoutForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!validate()) return;
-        // Mock de generación de orden. Cuando integres Firebase, reemplaza esto.
-        const mockId = `ORD-${Date.now().toString(36)}-${Math.random().toString(36).slice(2,8)}`;
-        setOrderId(mockId);
-        limpiarCarrito();
+        
+        setLoading(true);
+        
+        // Simular generación de orden
+        setTimeout(() => {
+            const mockId = `ORD-${Date.now().toString(36)}-${Math.random().toString(36).slice(2,8)}`;
+            setOrderId(mockId);
+            vaciarCarrito();
+            setLoading(false);
+        }, 500);
     };
 
     return (
@@ -79,7 +86,9 @@ const CheckoutForm = () => {
                 <input name="telefono" value={buyer.telefono} onChange={handleChange} />
             </label>
             {error && <p className="error">{error}</p>}
-            <button type="submit" className="btn-confirmar">Confirmar Compra</button>
+            <button type="submit" disabled={loading}>
+                {loading ? 'Procesando...' : 'Confirmar Compra'}
+            </button>
             </form>
         )}
         </section>

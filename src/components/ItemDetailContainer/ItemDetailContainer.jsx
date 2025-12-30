@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProductById } from "../../Data/mockData";
+import { getProductById } from "../../FirebaseConfig";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useCart } from "../../context/CartContext.jsx";
 

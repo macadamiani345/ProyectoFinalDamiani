@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getProducts, getProductsByCategory } from '../../Data/mockData';
+import { getProducts, getProductsByCategory } from '../../FirebaseConfig';
 import ItemList from '../ItemList/ItemList';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import "./ItemListContainer.css";
