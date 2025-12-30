@@ -1,0 +1,38 @@
+.contenedorTutoriales{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+
+    .video{
+        text-align: center;
+        padding: 15px;
+    
+        iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 5%;
+        }
+        
+        p {
+            text-align: left;
+            font-size: 16px;
+            color: var(--color-texto-general);
+        }
+    }
+}
+
+@keyframes fadeInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); 
+    }
+}
+
+.aparecerArriba {
+    animation: fadeInFromTop 1s ease-in-out; 
+}

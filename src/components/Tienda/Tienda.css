@@ -1,0 +1,78 @@
+.ubicacion {
+    width: 90%;
+    text-align: center;
+    justify-content: center;
+    margin: 40px auto 40px auto;
+
+    .contenedorTienda {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        .info {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            margin: 20px;
+
+            p {
+                font-size: 16px;
+                color: var(--color-texto-general);
+                margin: 10px;
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+                border-radius: 5%;
+                margin: auto;
+            }
+        }
+
+        .mapa {
+            flex: 1.5;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            iframe {
+                width: 100%;
+                aspect-ratio: 16/9;
+                border-radius: 5px;
+            }
+        }
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.aparecerDerecha {
+    animation: fadeInRight 1s ease-in-out;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.aparecerIzquierda {
+    animation: fadeInLeft 1s ease-in-out;
+}

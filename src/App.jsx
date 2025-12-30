@@ -7,6 +7,8 @@ import Extras from "./components/Extras/Extras"
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import Conoce from "./components/Conoce/Conoce"
+import Tienda from "./components/Tienda/Tienda"
+import Tutoriales from "./components/Tutoriales/Tutoriales"
 import Carrito from "./components/Carrito/Carrito"
 import { useCart } from './context/CartContext.jsx';
 import CheckoutForm from "./components/CheckoutForm/CheckoutForm.jsx";
@@ -46,6 +48,8 @@ function App() {
           <Route path="/categoria/:categoryId" element={ <ItemListContainer agregarAlCarrito={agregarProducto} />}/>
           <Route path="/detalle/:itemId" element={ <ItemDetailContainer /> }/>
           <Route path="/conoce" element={ <Conoce /> }/>
+          <Route path="/tienda" element={ <Tienda /> }/>
+          <Route path="/tutoriales" element={ <Tutoriales /> }/>
           <Route path="/checkout" element={ <CheckoutForm /> }/>
 
           <Route path="/carrito" element={ 
