@@ -50,11 +50,6 @@ npm run dev
 npm run build
 ```
 
-### 6. Desplegar en Netlify
-- Conecta tu repositorio a Netlify
-- En **Site settings** → **Build & deploy** → **Environment**, agrega las 6 variables de Firebase
-- El deploy se hará automáticamente
-
 Accede a http://localhost:5173 (puede variar según Vite).
 
 

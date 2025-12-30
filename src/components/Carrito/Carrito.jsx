@@ -1,4 +1,4 @@
-import "./carrito.css";
+import "./Carrito.css";
 import { Link } from "react-router-dom";
 
 function Carrito({ 
