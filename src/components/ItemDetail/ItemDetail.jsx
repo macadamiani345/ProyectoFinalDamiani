@@ -1,13 +1,16 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Button from "../Button/Button"; 
+import ItemCount from '../ItemCount/ItemCount';
 import "./ItemDetail.css"; 
 
-const ItemDetail = ({ id, name, brand, price, img, description, category, agregarAlCarrito}) => {
+const ItemDetail = ({ id, name, brand, price, img, description, category, stock = 10, agregarAlCarrito}) => {
+    const [cantidadAgregada, setCantidadAgregada] = useState(0);
     const mainCategory = category.split(',')[0].trim();
     
-    const handleClick = () => {
+    const handleAdd = (cantidad) => {
         const producto = { id, name, brand, price, img };
-        agregarAlCarrito(producto, 1);
+        agregarAlCarrito(producto, cantidad);
+        setCantidadAgregada(cantidad);
     };
     
     return (
@@ -35,8 +38,22 @@ const ItemDetail = ({ id, name, brand, price, img, description, category, agrega
 
                     <hr className="divisor" />
 
-                    <div className="contenedor-boton" onClick={handleClick}>
-                        <Button>Agregar al Carrito</Button>
+                    <div className="contenedor-boton">
+                        {cantidadAgregada === 0 ? (
+                            <ItemCount stock={stock} initial={1} onAdd={handleAdd} />
+                        ) : (
+                            <div style={{ textAlign: 'center' }}>
+                                <p style={{ marginBottom: '15px', color: '#4caf50', fontWeight: 'bold' }}>
+                                    ✓ Producto agregado al carrito
+                                </p>
+                                <Link to="/carrito" className="btn-ir-carrito">
+                                    Ir al Carrito
+                                </Link>
+                                <Link to="/productos" className="btn-seguir-comprando">
+                                    Seguir Comprando
+                                </Link>
+                            </div>
+                        )}
                     </div>
             
                 </div>

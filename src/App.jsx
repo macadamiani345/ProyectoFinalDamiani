@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
 import Carrusel from "./components/Carrusel/Carrusel"
@@ -8,7 +8,8 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import Conoce from "./components/Conoce/Conoce"
 import Carrito from "./components/Carrito/Carrito"
-import { useCarrito } from './components/Carrito/UseCarrito';
+import { useCart } from './context/CartContext.jsx';
+import CheckoutForm from "./components/CheckoutForm/CheckoutForm.jsx";
 
 function App() {
 
@@ -17,17 +18,16 @@ function App() {
     agregarProducto, 
     eliminarProducto, 
     vaciarCarrito, 
-    totalCantidad, 
     totalPrecio,
     aumentarCantidad,  
     disminuirCantidad, 
     comprar           
-  } = useCarrito();
+  } = useCart();
 
   return (
     <>
     
-      <Header totalItems={totalCantidad} />    
+      <Header />    
       
       <main>
         <Routes>
@@ -46,6 +46,7 @@ function App() {
           <Route path="/categoria/:categoryId" element={ <ItemListContainer agregarAlCarrito={agregarProducto} />}/>
           <Route path="/detalle/:itemId" element={ <ItemDetailContainer /> }/>
           <Route path="/conoce" element={ <Conoce /> }/>
+          <Route path="/checkout" element={ <CheckoutForm /> }/>
 
           <Route path="/carrito" element={ 
             <>

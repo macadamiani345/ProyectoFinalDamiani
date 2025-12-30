@@ -8,7 +8,6 @@ function Carrito({
     totalPrecio, 
     aumentarCantidad, 
     disminuirCantidad,
-    comprar 
 }) {
 
     return (
@@ -56,7 +55,7 @@ function Carrito({
         {carrito.length > 0 && (
             <div className="totalCompraCarrito">
                 <p>Total: ${totalPrecio.toFixed(2)}</p>
-                <button onClick={comprar} className="btn-comprar">Comprar</button>
+                <Link to="/checkout" className="btn-comprar">Ir al Checkout</Link>
             </div>
         )}
         </section>

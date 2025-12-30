@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../../Data/mockData";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { useCarrito } from "../Carrito/UseCarrito";
+import { useCart } from "../../context/CartContext.jsx";
 
 const ItemDetailContainer = () => {
     const [product, setProduct]   = useState(null);
     const { itemId } = useParams();
-    const { agregarProducto } = useCarrito();
+    const { agregarProducto } = useCart();
 
     useEffect(() => {
         getProductById(itemId)

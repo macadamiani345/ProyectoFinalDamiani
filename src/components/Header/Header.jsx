@@ -1,5 +1,5 @@
 import "./Header.css"
-import carrito from "../../assets/img/carrito.png";
+import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
 
 function Header(){
@@ -24,11 +24,7 @@ function Header(){
                             </form>
                         </div>
                     </div>
-                    <div>
-                        <Link to="/carrito">
-                            <img src={carrito} alt="Ícono de carrito de compras" width="25" height="25" />
-                        </Link>
-                    </div>
+                    <CartWidget />
                 </div>
             </section>
                     

@@ -6,6 +6,7 @@ import "./ItemListContainer.css";
 
 const ItemListContainer = ({ greeting, categoryProp, showCategoryFilter = false, agregarAlCarrito }) => { 
     const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
     const { categoryId } = useParams();
     const navigate = useNavigate();
 
@@ -17,7 +18,6 @@ const ItemListContainer = ({ greeting, categoryProp, showCategoryFilter = false,
         "rubores",
         "sombras",
         "nuevos",
-        "mas-vendidos",
     ];
 
     const getGreeting = () => {
@@ -29,11 +29,18 @@ const ItemListContainer = ({ greeting, categoryProp, showCategoryFilter = false,
     };
 
     useEffect(() => {
+        setLoading(true);
         const asyncFunc = categoryToFilter ? getProductsByCategory : getProducts;
 
         asyncFunc(categoryToFilter)
-            .then(res => setProducts(res))
-            .catch(err => console.error(err));
+            .then(res => {
+                setProducts(res);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error(err);
+                setLoading(false);
+            });
 
     }, [categoryToFilter]);
 
@@ -68,7 +75,11 @@ const ItemListContainer = ({ greeting, categoryProp, showCategoryFilter = false,
                     </select>
                 </div>
             )}
-            <ItemList products={products} agregarAlCarrito={agregarAlCarrito} />
+            {loading ? (
+                <p style={{textAlign:'center', margin:'50px 0', fontSize:'18px'}}>Cargando productos...</p>
+            ) : (
+                <ItemList products={products} agregarAlCarrito={agregarAlCarrito} />
+            )}
         </section>
     );
 };
